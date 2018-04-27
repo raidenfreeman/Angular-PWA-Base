@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "cashier-management"
+    "default": "cashier-management",
+    "pwa-base": "angular-pwa-base"
   }
 }
