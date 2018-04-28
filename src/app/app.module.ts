@@ -42,15 +42,16 @@ import {
   MatToolbarModule,
   MatTooltipModule
 } from "@angular/material";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { FooterComponent } from "./footer/footer.component";
-import { CategoriesComponent } from "./categories/categories.component";
-import { CategoriesService } from "./services/categories.service";
 import { Http, HttpModule } from "@angular/http";
 import { routes } from "./app.route";
-import { TagsComponent } from "./tags/tags.component";
-import { QuestionsComponent } from "./questions/questions.component";
-import { QuestionsService } from "./services/questions.service";
+import {
+  NavbarComponent,
+  FooterComponent,
+  CategoriesComponent,
+  TagsComponent,
+  QuestionsComponent
+} from "./components";
+import { CategoriesService, QuestionsService } from "./services";
 
 @NgModule({
   declarations: [

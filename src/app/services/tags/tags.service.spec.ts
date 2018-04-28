@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { TagsService } from './tags.service';
+import { TagService } from './tags.service';
 
 describe('TagsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [TagsService]
+      providers: [TagService]
     });
   });
 
-  it('should be created', inject([TagsService], (service: TagsService) => {
+  it('should be created', inject([TagService], (service: TagService) => {
     expect(service).toBeTruthy();
   }));
 });

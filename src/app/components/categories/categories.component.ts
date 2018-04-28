@@ -1,10 +1,10 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { CategoriesService } from "../services/categories.service";
 import { Observable } from "rxjs/Observable";
-import { Category } from "../model/category";
 import { MatTableDataSource } from "@angular/material";
 import { Subscription } from "rxjs/Subscription";
 import { DataSource } from "@angular/cdk/table";
+import { CategoriesService } from "../../services";
+import { Category } from "../../model";
 
 @Component({
   selector: "app-categories",

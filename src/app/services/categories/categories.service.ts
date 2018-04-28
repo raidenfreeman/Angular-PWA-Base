@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { Headers, Http } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
+import { Category } from "../../model";
 
-import { Category } from "../model/category";
 
 @Injectable()
 export class CategoriesService {

@@ -1,7 +1,9 @@
 import { Routes } from "@angular/router";
-import { CategoriesComponent } from './categories/categories.component';
-import { TagsComponent } from './tags/tags.component';
-import { QuestionsComponent } from './questions/questions.component';
+import {
+  CategoriesComponent,
+  QuestionsComponent,
+  TagsComponent
+} from "./components";
 
 export const routes: Routes = [
   {
