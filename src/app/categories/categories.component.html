@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-title>Categories</mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <!-- <mat-list>
+        <mat-list-item *ngFor="let category of categories$ | async">{{category.categoryName}}</mat-list-item>
+      </mat-list> -->
+    <mat-table [dataSource]="tableDataSource">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="categoryName">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.categoryName }}</mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+  </mat-card-content>
+</mat-card>

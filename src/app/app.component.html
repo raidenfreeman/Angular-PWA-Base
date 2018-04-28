@@ -1,7 +1,21 @@
 <app-navbar></app-navbar>
-<div style="flex: 1 1 auto; display: flex; align-items: center; justify-content: center;">
-  <div style="font-size: xx-large; line-height: 5rem; text-align: center; color:white;"> 🚧
+<div style="flex: 1 1 auto; background-color: blanchedalmond; display: flex;">
+  <!-- <div style="font-size: xx-large; line-height: 5rem; text-align: center; color:white;"> 🚧
     <br> Under Construction
-    <br> 🚧 </div>
+    <br> 🚧 </div> -->
+  <mat-sidenav-container style="flex: 1;">
+    <mat-sidenav mode="side" opened style="min-width: 10%; box-shadow: black 2px 2px 11px 0px;">
+      <mat-nav-list>
+        <a mat-list-item [routerLink]="['/categories']">Categories</a>
+        <a mat-list-item [routerLink]="['/tags']">Tags</a>
+        <a mat-list-item [routerLink]="['/questions']">Questions</a>
+      </mat-nav-list>
+      <mat-divider></mat-divider>
+    </mat-sidenav>
+    <mat-sidenav-content style="padding: 3%;">
+      <!-- <app-categories></app-categories> -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
 <app-footer></app-footer>

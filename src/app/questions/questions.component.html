@@ -1,0 +1,46 @@
+<!-- <mat-card>
+  <mat-card-title>
+    Questions
+  </mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <mat-list>
+      <ng-container *ngFor="let question of questions">
+        <mat-list-item>
+          <span>{{question.questionText}}</span>
+          <mat-list style="margin-left:30px;">
+            <div *ngFor="let answer of question.answers">
+              <mat-list-item>
+                <span>{{answer.answerText}}</span>
+              </mat-list-item>
+            </div>
+          </mat-list>
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
+  </mat-card-content>
+</mat-card> -->
+
+
+<mat-card>
+  <mat-card-title>
+    Questions
+  </mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <mat-list>
+      <ng-container *ngFor="let question of questions">
+        <mat-list-item>
+          <span>{{question.questionText}}</span>
+        </mat-list-item>
+        <mat-list style="margin-left:30px;">
+          <div *ngFor="let answer of question.answers">
+            <mat-list-item>
+              <span>{{answer.answerText}}</span>
+            </mat-list-item>
+          </div>
+        </mat-list>
+      </ng-container>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

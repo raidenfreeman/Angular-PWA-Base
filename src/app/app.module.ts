@@ -1,3 +1,4 @@
+import { RouterModule } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
@@ -39,13 +40,27 @@ import {
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTooltipModule,
+  MatTooltipModule
 } from "@angular/material";
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from "./navbar/navbar.component";
+import { FooterComponent } from "./footer/footer.component";
+import { CategoriesComponent } from "./categories/categories.component";
+import { CategoriesService } from "./services/categories.service";
+import { Http, HttpModule } from "@angular/http";
+import { routes } from "./app.route";
+import { TagsComponent } from "./tags/tags.component";
+import { QuestionsComponent } from "./questions/questions.component";
+import { QuestionsService } from "./services/questions.service";
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    FooterComponent,
+    CategoriesComponent,
+    TagsComponent,
+    QuestionsComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -81,11 +96,13 @@ import { FooterComponent } from './footer/footer.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
+    HttpModule,
+    RouterModule.forRoot(routes),
     ServiceWorkerModule.register("/ngsw-worker.js", {
       enabled: environment.production
     })
   ],
-  providers: [],
+  providers: [CategoriesService, QuestionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
