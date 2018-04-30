@@ -1,4 +1,3 @@
-import { RouterModule } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
@@ -43,15 +42,17 @@ import {
   MatTooltipModule
 } from "@angular/material";
 import { Http, HttpModule } from "@angular/http";
-import { routes } from "./app.route";
 import {
   NavbarComponent,
   FooterComponent,
   CategoriesComponent,
   TagsComponent,
-  QuestionsComponent
+  QuestionsComponent,
+  QuestionAddUpdateComponent
 } from "./components";
 import { CategoriesService, QuestionsService } from "./services";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { AppRoutingModule } from "./routing/app-routing.module";
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { CategoriesService, QuestionsService } from "./services";
     FooterComponent,
     CategoriesComponent,
     TagsComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    QuestionAddUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +100,9 @@ import { CategoriesService, QuestionsService } from "./services";
     MatToolbarModule,
     MatTooltipModule,
     HttpModule,
-    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
     ServiceWorkerModule.register("/ngsw-worker.js", {
       enabled: environment.production
     })

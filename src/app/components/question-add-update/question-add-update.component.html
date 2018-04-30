@@ -1,3 +1,48 @@
-<p>
-  question-add-update works!
-</p>
+<mat-card>
+  <form>
+    <mat-card-title style="display: flex; align-items: center;">
+      <span>Add Question</span>
+      <span style="flex: 1;"></span>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-select placeholder="Category" name="category">
+          <mat-option *ngFor="let category of categories" [value]="category.id">
+            {{category.categoryName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-list>
+        <mat-form-field style="width: 100%;">
+          <input matInput placeholder="Question">
+        </mat-form-field>
+        <div style="width: 100%; display: flex; align-items: center;" *ngFor="let index of [1,2,3,4]">
+          <mat-checkbox></mat-checkbox>
+          <mat-form-field style="flex:1; margin-left: 2em;">
+            <input matInput [placeholder]="'Answer ' + index" />
+            <mat-hint align="end">Answer {{index}}</mat-hint>
+          </mat-form-field>
+        </div>
+      </mat-list>
+      <ng-container>
+        <mat-form-field>
+          <input matInput placeholder="Tag">
+        </mat-form-field>
+      </ng-container>
+      <mat-chip-list>
+        <mat-chip>
+          Tag 1
+        </mat-chip>
+        <mat-chip>
+          Tag 2
+        </mat-chip>
+      </mat-chip-list>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">SAVE</button>
+      <button mat-raised-button color="warn">CANCEL</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
