@@ -1,19 +1,18 @@
-<app-navbar></app-navbar>
-<div style="flex: 1 1 auto; background-color: blanchedalmond; display: flex;">
-  <!-- <div style="font-size: xx-large; line-height: 5rem; text-align: center; color:white;"> 🚧
-    <br> Under Construction
-    <br> 🚧 </div> -->
+<app-navbar [sidenavReference]="snav"></app-navbar>
+<div style="flex: auto; display: flex;">
   <mat-sidenav-container style="flex: 1;">
-    <mat-sidenav mode="side" opened style="min-width: 10%; box-shadow: black 2px 2px 11px 0px;">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"
+      [opened]="!mobileQuery.matches" style="min-width: 22em; box-shadow: black 2px 2px 11px 0px;">
       <mat-nav-list>
         <a mat-list-item [routerLink]="['/categories']">Categories</a>
-        <a mat-list-item [routerLink]="['/tags']">Tags</a>
-        <a mat-list-item [routerLink]="['/questions']">Questions</a>
+        <a mat-list-item [routerLink]="['/tags']">🗒 Tags</a>
+        <a mat-list-item [routerLink]="['/questions']">❔ Questions</a>
+        <a mat-list-item [routerLink]="['/cards']">💳 Cards</a>
       </mat-nav-list>
       <mat-divider></mat-divider>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div style="padding: 3%;">
+      <div style="padding: 3em;">
         <!-- <app-categories></app-categories> -->
         <router-outlet></router-outlet>
       </div>

@@ -48,9 +48,14 @@ import {
   CategoriesComponent,
   TagsComponent,
   QuestionsComponent,
-  QuestionAddUpdateComponent
+  QuestionAddUpdateComponent,
+  CreditCardComponent
 } from "./components";
-import { CategoriesService, QuestionsService } from "./services";
+import {
+  CategoriesService,
+  QuestionsService,
+  CreditCardService
+} from "./services";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./routing/app-routing.module";
 
@@ -62,7 +67,8 @@ import { AppRoutingModule } from "./routing/app-routing.module";
     CategoriesComponent,
     TagsComponent,
     QuestionsComponent,
-    QuestionAddUpdateComponent
+    QuestionAddUpdateComponent,
+    CreditCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,7 +113,7 @@ import { AppRoutingModule } from "./routing/app-routing.module";
       enabled: environment.production
     })
   ],
-  providers: [CategoriesService, QuestionsService],
+  providers: [CategoriesService, QuestionsService, CreditCardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

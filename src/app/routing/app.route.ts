@@ -1,5 +1,5 @@
 import { Routes } from "@angular/router";
-import { CategoriesComponent, QuestionsComponent, TagsComponent, QuestionAddUpdateComponent } from "../components";
+import { CategoriesComponent, QuestionsComponent, TagsComponent, QuestionAddUpdateComponent, CreditCardComponent } from "../components";
 
 export const routes: Routes = [
   {
@@ -22,6 +22,10 @@ export const routes: Routes = [
   {
     path: "question/add",
     component: QuestionAddUpdateComponent
+  },
+  {
+    path: "cards",
+    component: CreditCardComponent
   },
   {
     path: "**",

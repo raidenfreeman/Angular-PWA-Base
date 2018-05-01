@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Input, TemplateRef, Component } from "@angular/core";
+import { MediaMatcher } from "@angular/cdk/layout";
+import { MatSidenav } from "@angular/material";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.css"]
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
+  @Input() sidenavReference;
+  mobileQuery: MediaQueryList;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  toggleSidenav() {
+    if (this.sidenavReference && this.sidenavReference.toggle) {
+      this.sidenavReference.toggle();
+    }
   }
-
 }

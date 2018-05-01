@@ -5,11 +5,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build --prod --build-optimizer",
+    "build": "ng build --prod --build-optimizer --stats-json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "api": "json-server --watch src/db.json"
+    "api": "json-server --watch src/db.json",
+    "bundle-report": "webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -49,6 +50,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
-    "typescript": "2.6.2"
+    "typescript": "2.6.2",
+    "webpack-bundle-analyzer": "^2.11.1"
   }
 }
