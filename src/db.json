@@ -24,17 +24,17 @@
   "cards": [
     {
       "id": "1",
-      "name": "AlphaVisa",
-      "description": "",
-      "issuingOrganization": "Alpha",
-      "commissionPercentage": 0.05,
+      "name": "Alpha Bonus",
+      "description": "Alpha Enter Bonus",
+      "issuingOrganization": "AlphaBank",
+      "commissionPercentage": "0.01",
       "commissionFixed": 0,
-      "type": "1"
+      "type": 1
     },
     {
       "id": "2",
       "name": "NBG Master",
-      "description": "Debit Mastercard",
+      "description": "Debit Mastercards",
       "issuingOrganization": "NBG",
       "commissionPercentage": 0.01,
       "commissionFixed": 0.01,
@@ -50,69 +50,44 @@
       "type": "1"
     },
     {
-      "id": "1",
-      "name": "AlphaVisa",
-      "description": "",
-      "issuingOrganization": "Alpha",
-      "commissionPercentage": 0.05,
-      "commissionFixed": 0,
-      "type": "1"
-    },
-    {
-      "id": "2",
-      "name": "NBG Master",
-      "description": "Debit Mastercard",
-      "issuingOrganization": "NBG",
+      "id": "4",
+      "name": "EnterBonus",
+      "description": "Alpha Enter Bonus Visa Debit",
+      "issuingOrganization": "AlphaBank",
       "commissionPercentage": 0.01,
-      "commissionFixed": 0.01,
-      "type": "2"
-    },
-    {
-      "id": "3",
-      "name": "PeiraiosVisa",
-      "description": "Πειραιώς Visa Debit",
-      "issuingOrganization": "Peiraios",
-      "commissionPercentage": 0.07,
-      "commissionFixed": 0,
-      "type": "1"
-    },
-    {
-      "id": "1",
-      "name": "AlphaVisa",
-      "description": "",
-      "issuingOrganization": "Alpha",
-      "commissionPercentage": 0.05,
-      "commissionFixed": 0,
-      "type": "1"
-    },
-    {
-      "id": "2",
-      "name": "NBG Master",
-      "description": "Debit Mastercard",
-      "issuingOrganization": "NBG",
-      "commissionPercentage": 0.01,
-      "commissionFixed": 0.01,
-      "type": "2"
-    },
-    {
-      "id": "3",
-      "name": "PeiraiosVisa",
-      "description": "Πειραιώς Visa Debit",
-      "issuingOrganization": "Peiraios",
-      "commissionPercentage": 0.07,
       "commissionFixed": 0,
       "type": "1"
     }
   ],
-
   "categories": [
-    { "id": 1, "categoryName": "Special" },
-    { "id": 2, "categoryName": "Programming" },
-    { "id": 3, "categoryName": "Architecture" },
-    { "id": 4, "categoryName": "Networking/Infrastructure" },
-    { "id": 5, "categoryName": "Database" },
-    { "id": 6, "categoryName": "Dev Ops" },
-    { "id": 7, "categoryName": "UX/UI" }
+    {
+      "id": 1,
+      "categoryName": "Special"
+    },
+    {
+      "id": 2,
+      "categoryName": "Programming"
+    },
+    {
+      "id": 3,
+      "categoryName": "Architecture"
+    },
+    {
+      "id": 4,
+      "categoryName": "Networking/Infrastructure"
+    },
+    {
+      "id": 5,
+      "categoryName": "Database"
+    },
+    {
+      "id": 6,
+      "categoryName": "Dev Ops"
+    },
+    {
+      "id": 7,
+      "categoryName": "UX/UI"
+    }
   ],
   "tagList": [
     "C#",
@@ -260,8 +235,7 @@
   "questions": [
     {
       "id": 1,
-      "questionText":
-        "Which of the following function of Array object reverses the order of the elements of an array?",
+      "questionText": "Which of the following function of Array object reverses the order of the elements of an array?",
       "answers": [
         {
           "id": 1,
@@ -285,13 +259,18 @@
         }
       ],
       "ordered": false,
-      "tags": ["JavaScript"],
-      "categories": [{ "id": 2 }]
+      "tags": [
+        "JavaScript"
+      ],
+      "categories": [
+        {
+          "id": 2
+        }
+      ]
     },
     {
       "id": 2,
-      "questionText":
-        "Which of the following function of Array object calls a function for each element in the array?",
+      "questionText": "Which of the following function of Array object calls a function for each element in the array?",
       "answers": [
         {
           "id": 1,
@@ -315,13 +294,18 @@
         }
       ],
       "ordered": false,
-      "tags": ["JavaScript"],
-      "categories": [{ "id": 2 }]
+      "tags": [
+        "JavaScript"
+      ],
+      "categories": [
+        {
+          "id": 2
+        }
+      ]
     },
     {
       "id": 3,
-      "questionText":
-        "Which of the following function of String object returns the index within the calling String object of the first occurrence of the specified value?",
+      "questionText": "Which of the following function of String object returns the index within the calling String object of the first occurrence of the specified value?",
       "answers": [
         {
           "id": 1,
@@ -345,13 +329,18 @@
         }
       ],
       "ordered": false,
-      "tags": ["JavaScript"],
-      "categories": [{ "id": 2 }]
+      "tags": [
+        "JavaScript"
+      ],
+      "categories": [
+        {
+          "id": 2
+        }
+      ]
     },
     {
       "id": 4,
-      "questionText":
-        "Which of the following function of Boolean object returns a string containing the source of the Boolean object?",
+      "questionText": "Which of the following function of Boolean object returns a string containing the source of the Boolean object?",
       "answers": [
         {
           "id": 1,
@@ -375,24 +364,27 @@
         }
       ],
       "ordered": false,
-      "tags": ["JavaScript"],
-      "categories": [{ "id": 2 }]
+      "tags": [
+        "JavaScript"
+      ],
+      "categories": [
+        {
+          "id": 2
+        }
+      ]
     },
     {
       "id": 5,
-      "questionText":
-        "Which of the following is true about cookie handling in JavaScript?",
+      "questionText": "Which of the following is true about cookie handling in JavaScript?",
       "answers": [
         {
           "id": 1,
-          "answerText":
-            "JavaScript can manipulate cookies using the cookie property of the Document object.",
+          "answerText": "JavaScript can manipulate cookies using the cookie property of the Document object.",
           "correct": false
         },
         {
           "id": 2,
-          "answerText":
-            "JavaScript can read, create, modify, and delete the cookie or cookies that apply to the current web page.",
+          "answerText": "JavaScript can read, create, modify, and delete the cookie or cookies that apply to the current web page.",
           "correct": false
         },
         {
@@ -407,8 +399,14 @@
         }
       ],
       "ordered": true,
-      "tags": ["JavaScript"],
-      "categories": [{ "id": 2 }]
+      "tags": [
+        "JavaScript"
+      ],
+      "categories": [
+        {
+          "id": 2
+        }
+      ]
     },
     {
       "id": 6,
@@ -437,7 +435,11 @@
       ],
       "ordered": false,
       "tags": [],
-      "categories": [{ "id": 1 }]
+      "categories": [
+        {
+          "id": 1
+        }
+      ]
     }
   ]
 }

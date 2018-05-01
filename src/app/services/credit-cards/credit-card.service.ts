@@ -17,4 +17,19 @@ export class CreditCardService {
   getCardTypes(): Observable<CardType[]> {
     return this.http.get(this._serviceUrlTypes).map(res => res.json());
   }
+
+  saveCreditCards(cards: CreditCard[]): Observable<CreditCard[]> {
+    let url = this._serviceUrlCards;
+    return this.http.post(url, cards).map(res => res.json());
+  }
+
+  createCreditCard(card: CreditCard): Observable<CreditCard> {
+    let url = this._serviceUrlCards;
+    return this.http.post(url, card).map(res => res.json());
+  }
+
+  updateCreditCard(card: CreditCard): Observable<CreditCard> {
+    let url = this._serviceUrlCards + "/" + card.id;
+    return this.http.put(url, card).map(res => res.json());
+  }
 }

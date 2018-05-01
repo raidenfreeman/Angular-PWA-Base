@@ -8,7 +8,7 @@ import { MatSidenav } from "@angular/material";
   styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent {
-  @Input() sidenavReference;
+  @Input() sidenavReference: MatSidenav;
   mobileQuery: MediaQueryList;
 
   constructor() {}

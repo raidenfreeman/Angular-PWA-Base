@@ -58,6 +58,7 @@ import {
 } from "./services";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./routing/app-routing.module";
+import { CardFormComponent } from './components/cards/card-form/card-form.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { AppRoutingModule } from "./routing/app-routing.module";
     QuestionsComponent,
     QuestionAddUpdateComponent,
     CreditCardComponent,
+    CardFormComponent,
   ],
   imports: [
     BrowserModule,
