@@ -23,7 +23,6 @@ import "rxjs/add/operator/catch";
       state("in", style({ transform: "translateX(0)" })),
       state("out", style({ transform: "translateX(-100%)" })),
       transition("in => out", [
-        // animate("300ms ease-out")
         animate(
           300,
           keyframes([
@@ -34,7 +33,6 @@ import "rxjs/add/operator/catch";
         )
       ]),
       transition("out => in", [
-        // animate("300ms ease-out")
         animate(
           300,
           keyframes([
