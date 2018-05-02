@@ -29,7 +29,7 @@ export class CreditCardService {
   }
 
   updateCreditCard(card: CreditCard): Observable<CreditCard> {
-    let url = this._serviceUrlCards + "/" + card.id;
+    let url = this._serviceUrlCards + "/gg" + card.id;
     return this.http.put(url, card).map(res => res.json());
   }
 }

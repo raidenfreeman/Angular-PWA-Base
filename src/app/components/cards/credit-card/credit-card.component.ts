@@ -13,14 +13,21 @@ import "rxjs/add/operator/take";
 export class CreditCardComponent implements OnInit {
   constructor(private creditCardService: CreditCardService) {}
 
-  private gg;
   creditCards$: Observable<CreditCard[]>;
+  creditCards: CreditCard[];
   creditCardTypes: CardType[];
   ngOnInit() {
-    this.creditCards$ = this.creditCardService.getCreditCards();
-    this.gg = this.creditCardService
+    this.creditCardService
+      .getCreditCards()
+      .take(1)
+      .subscribe(res => (this.creditCards = res));
+    this.creditCardService
       .getCardTypes()
       .take(1)
       .subscribe(res => (this.creditCardTypes = res));
+  }
+
+  addCard() {
+    this.creditCards.push(new CreditCard());
   }
 }

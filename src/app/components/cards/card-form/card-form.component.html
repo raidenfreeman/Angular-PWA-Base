@@ -5,7 +5,7 @@
       <mat-card-title>
         <mat-form-field>
           <mat-label>Name</mat-label>
-          <input matInput placeholder="A name for the card..." formControlName="name" >
+          <input matInput placeholder="A name for the card..." formControlName="name" required>
         </mat-form-field>
       </mat-card-title>
       <span style="flex:1"></span>
@@ -15,35 +15,37 @@
     <mat-card-content class="card-content-column">
       <mat-form-field>
         <mat-label>Description</mat-label>
-        <input matInput placeholder="A short description for the card..." formControlName="description" >
+        <input matInput placeholder="A short description for the card..." formControlName="description">
       </mat-form-field>
       <mat-form-field>
         <mat-label>Issuer</mat-label>
-        <input matInput placeholder="The name of the bank..." formControlName="issuingOrganization" >
+        <input matInput placeholder="The name of the bank..." formControlName="issuingOrganization">
       </mat-form-field>
       <mat-form-field>
         <mat-label>Commission Percentage</mat-label>
-        <input matInput placeholder="0.05" formControlName="commissionPercentage" >
+        <input matInput placeholder="0.05" formControlName="commissionPercentage" required>
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field [floatLabel]="'auto'">
         <mat-label>Fixed Commission per transaction</mat-label>
         <span matPrefix>€&nbsp;</span>
-        <input matInput placeholder="0.01" formControlName="commissionFixed">
+        <input matInput placeholder="0.01" formControlName="commissionFixed" required>
       </mat-form-field>
       <mat-form-field>
         <mat-select placeholder="Type" formControlName="type">
-          <mat-option *ngFor="let cardType of creditCardTypes" [value]="cardType.id">
-            <!-- {{ cardType.name }} -->
+          <mat-option *ngFor="let cardType of cardTypes" [value]="cardType.id" required>
+            {{ cardType.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-card-actions style="display: flex; justify-content: space-evenly;">
-        <button mat-fab color="primary" type="submit">
-          <mat-icon aria-label="Save">save</mat-icon>
-        </button>
-        <button mat-fab color="warn" type="reset">
-          <mat-icon aria-label="Cancel">cancel</mat-icon>
-        </button>
+      <mat-card-actions style="overflow: hidden;">
+        <div [@flyInOut]="creditCardForm.dirty?'in':'out'" style="display: flex; justify-content: space-evenly;">
+          <button mat-fab color="primary" type="submit">
+            <mat-icon aria-label="Save">save</mat-icon>
+          </button>
+          <button mat-fab color="warn" type="reset">
+            <mat-icon aria-label="Cancel">cancel</mat-icon>
+          </button>
+        </div>
       </mat-card-actions>
     </mat-card-content>
   </mat-card>

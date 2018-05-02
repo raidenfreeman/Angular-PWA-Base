@@ -48,7 +48,6 @@ import {
   CategoriesComponent,
   TagsComponent,
   QuestionsComponent,
-  QuestionAddUpdateComponent,
   CreditCardComponent
 } from "./components";
 import {
@@ -68,7 +67,6 @@ import { CardFormComponent } from './components/cards/card-form/card-form.compon
     CategoriesComponent,
     TagsComponent,
     QuestionsComponent,
-    QuestionAddUpdateComponent,
     CreditCardComponent,
     CardFormComponent,
   ],
@@ -108,7 +106,6 @@ import { CardFormComponent } from './components/cards/card-form/card-form.compon
     MatToolbarModule,
     MatTooltipModule,
     HttpModule,
-    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     ServiceWorkerModule.register("/ngsw-worker.js", {

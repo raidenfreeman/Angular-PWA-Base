@@ -44,4 +44,16 @@ export class CreditCard {
    * @memberof CreditCard
    */
   type: string;
+
+  /**
+   *
+   */
+  constructor() {
+    this.name = "";
+    this.description = "";
+    this.issuingOrganization = "";
+    this.type = "";
+    this.commissionPercentage = 0;
+    this.commissionFixed = 0;
+  }
 }
