@@ -7,11 +7,7 @@
     {
       "root": "src",
       "outDir": "dist",
-      "assets": [
-        "assets",
-        "favicon.ico",
-        "manifest.json"
-      ],
+      "assets": ["assets", "favicon.ico", "manifest.json"],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -20,10 +16,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "serviceWorker": true,
-      "styles": [
-        "styles.css"
-      ],
-      "scripts": [],
+      "styles": ["styles.css"],
+      "scripts": ["../node_modules/muuri/muuri.min.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -57,7 +51,6 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {
-    }
+    "component": {}
   }
 }
