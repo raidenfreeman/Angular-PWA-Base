@@ -1,6 +1,5 @@
 import { CreditCard } from "../../model";
 import { CreditCardActionTypes, CreditCardActions } from "../actions";
-import { stat } from "fs";
 
 export function creditCardReducer(state = [], action: CreditCardActions) {
   switch (action.type) {
