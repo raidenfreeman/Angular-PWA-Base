@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import {
   trigger,
   state,
@@ -9,10 +9,9 @@ import {
 } from "@angular/animations";
 import { CreditCard, CardType } from "../../../model";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { CreditCardService } from "../../../services";
-import { Router } from "@angular/router";
-import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/catch";
+import { Store } from "@ngrx/store";
+import { UpdateCard } from "../../../store/actions";
 
 @Component({
   selector: "app-card-form",
@@ -50,11 +49,7 @@ export class CardFormComponent implements OnInit {
   @Input() cardTypes: CardType[];
   // @Output() onFormSubmition = new EventEmitter<CreditCard>();
   creditCardForm: FormGroup;
-  constructor(
-    private formBuilder: FormBuilder,
-    private cardService: CreditCardService,
-    private router: Router
-  ) {}
+  constructor(private formBuilder: FormBuilder, private store: Store<any>) {}
 
   ngOnInit() {
     this.creditCardForm = this.buildForm(this.formBuilder, this.card);
@@ -64,31 +59,33 @@ export class CardFormComponent implements OnInit {
     if (this.creditCardForm.invalid) {
       return;
     }
-    const newCard = this.getCardFromValue(this.creditCardForm.value);
-    let serviceObservable: Observable<CreditCard>;
-    if (!newCard.id) {
-      serviceObservable = this.cardService.createCreditCard(newCard);
-    } else {
-      serviceObservable = this.cardService.updateCreditCard(newCard);
-    }
-    serviceObservable
-      .take(1)
-      .catch(err => {
-        console.error(err);
-        return Observable.throw(err);
-      })
-      .subscribe(_ => {
-        this.creditCardForm = this.buildForm(this.formBuilder, newCard);
-        return;
-      });
+    this.store.dispatch(new UpdateCard(this.creditCardForm.value));
+    // const newCard = this.getCardFromValue(this.creditCardForm.value);
+    // // let serviceObservable: Observable<CreditCard>;
+    // // if (!newCard.id) {
+    // //   serviceObservable = this.cardService.createCreditCard(newCard);
+    // } else {
+    //   serviceObservable = this.cardService.updateCreditCard(newCard);
+    // }
+    // serviceObservable
+    //   .take(1)
+    //   .catch(err => {
+    //     console.error(err);
+    //     return Observable.throw(err);
+    //   })
+    //   .subscribe(_ => {
+    //     this.creditCardForm = this.buildForm(this.formBuilder, newCard);
+    //     return;
+    //   });
   }
 
-  getCardFromValue(formValue: any): CreditCard {
-    return Object.assign({ id: this.card.id }, formValue);
-  }
+  // getCardFromValue(formValue: any): CreditCard {
+  //   return Object.assign({ id: this.card.id }, formValue);
+  // }
 
   buildForm(fb: FormBuilder, card: CreditCard) {
     return fb.group({
+      id: [card.id],
       name: [card.name, Validators.required],
       description: card.description,
       issuingOrganization: card.issuingOrganization,

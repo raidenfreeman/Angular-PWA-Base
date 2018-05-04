@@ -15,6 +15,8 @@ export class CreditCardTypeEffects {
   @Effect()
   loadCreditCardTypes$ = this.actions$.pipe(
     ofType(CreditCardTypeActionTypes.LoadCardTypes),
+    // exhaustMap, because we don't want other requests/actions to
+    // interrupt this one
     exhaustMap((action: LoadCardTypes) =>
       this.service
         .getCardTypes()

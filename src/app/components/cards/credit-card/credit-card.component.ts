@@ -6,7 +6,13 @@ import { CardType } from "../../../model";
 import "rxjs/add/operator/take";
 import { Store } from "@ngrx/store";
 import * as fromCardTypeReducer from "../../../store/reducers/credit-card-type.reducer";
-import { LoadCardTypes } from "../../../store/actions";
+import * as fromCreditCardReducer from "../../../store/reducers/credit-card.reducer";
+import { LoadCardTypes, LoadCards } from "../../../store/actions";
+
+interface AppState {
+  cardTypes: CardType[];
+  creditCards: CreditCard[];
+}
 
 @Component({
   selector: "app-credit-card",
@@ -16,27 +22,19 @@ import { LoadCardTypes } from "../../../store/actions";
 export class CreditCardComponent implements OnInit {
   constructor(
     private creditCardService: CreditCardService,
-    private store: Store<fromCardTypeReducer.State>
+    private store: Store<AppState>
   ) {}
 
   creditCards$: Observable<CreditCard[]>;
-  creditCards: CreditCard[];
-  creditCardTypes: CardType[];
   types$: Observable<CardType[]>;
   ngOnInit() {
     this.store.dispatch(new LoadCardTypes());
-    // this.creditCardService
-    //   .getCreditCards()
-    //   .take(1)
-    //   .subscribe(res => (this.creditCards = res));
+    this.store.dispatch(new LoadCards());
     this.types$ = this.store.select(x => x.cardTypes);
-    // this.creditCardService
-    //   .getCardTypes()
-    //   .take(1)
-    //   .subscribe(res => (this.creditCardTypes = res));
+    this.creditCards$ = this.store.select(x => x.creditCards);
   }
 
   addCard() {
-    this.creditCards.push(new CreditCard());
+    // this.creditCards.push(new CreditCard());
   }
 }

@@ -6,12 +6,15 @@ import { CreditCard } from "../../model";
  * enum object for all of this group's action types.
  */
 export const enum CreditCardActionTypes {
-  LoadCardsError = "[CreditCard] LoadCardsError",
-  LoadCards = "[CreditCard] LoadCards",
-  LoadCardsComplete = "[CreditCard] LoadCardsComplete",
-  SaveCards = "[CreditCard] SaveCards",
-  SaveCardsComplete = "[CreditCard] SaveCardsComplete",
-  SaveCardsError = "[CreditCard] SaveCardsError"
+  LoadCardsError = "[CreditCard] Load Cards Error",
+  LoadCards = "[CreditCard] Load Cards",
+  LoadCardsComplete = "[CreditCard] Load Cards Complete",
+  UpdateCard = "[CreditCard] Update Card",
+  UpdateCardComplete = "[CreditCard] Update Card Complete",
+  UpdateCardError = "[CreditCard] Update Card Error",
+  CreateCard = "[CreditCard] Create Card",
+  CreateCardComplete = "[CreditCard] Create Card Complete",
+  CreateCardError = "[CreditCard] Create Card Error"
 }
 
 /**
@@ -35,20 +38,38 @@ export class LoadCardsError implements Action {
   constructor(public payload: string) {}
 }
 
-export class SaveCards implements Action {
-  readonly type = CreditCardActionTypes.SaveCards;
+export class UpdateCard implements Action {
+  readonly type = CreditCardActionTypes.UpdateCard;
 
   constructor(public payload: CreditCard) {}
 }
 
-export class SaveCardsComplete implements Action {
-  readonly type = CreditCardActionTypes.SaveCardsComplete;
+export class UpdateCardComplete implements Action {
+  readonly type = CreditCardActionTypes.UpdateCardComplete;
+
+  constructor(public payload: CreditCard) {}
+}
+
+export class UpdateCardError implements Action {
+  readonly type = CreditCardActionTypes.UpdateCardError;
 
   constructor(public payload: string) {}
 }
 
-export class SaveCardsError implements Action {
-  readonly type = CreditCardActionTypes.SaveCardsError;
+export class CreateCard implements Action {
+  readonly type = CreditCardActionTypes.CreateCard;
+
+  constructor(public payload: CreditCard) {}
+}
+
+export class CreateCardComplete implements Action {
+  readonly type = CreditCardActionTypes.CreateCardComplete;
+
+  constructor(public payload: CreditCard) {}
+}
+
+export class CreateCardError implements Action {
+  readonly type = CreditCardActionTypes.CreateCardError;
 
   constructor(public payload: string) {}
 }
@@ -61,6 +82,9 @@ export type CreditCardActions =
   | LoadCards
   | LoadCardsComplete
   | LoadCardsError
-  | SaveCards
-  | SaveCardsComplete
-  | SaveCardsError;
+  | UpdateCard
+  | UpdateCardComplete
+  | UpdateCardError
+  | CreateCard
+  | CreateCardComplete
+  | CreateCardError;

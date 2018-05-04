@@ -62,7 +62,7 @@
       "id": "pMneqTm",
       "name": "American Express",
       "description": "Huge percentages!",
-      "issuingOrganization": "",
+      "issuingOrganization": "HSBC",
       "commissionPercentage": "5",
       "commissionFixed": "0.001",
       "type": "4"

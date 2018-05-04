@@ -57,9 +57,9 @@ import {
   CreditCardService,
   QuestionsService
 } from "./services";
-import { cardTypeReducer } from "./store/reducers/credit-card-type.reducer";
 import { EffectsModule } from "@ngrx/effects";
-import { CreditCardTypeEffects } from "./store/effects/credit-card-type.effect";
+import * as EffectsBarrel from "./store/effects";
+import { creditCardReducer, cardTypeReducer } from "./store/reducers";
 // import
 
 @NgModule({
@@ -111,14 +111,20 @@ import { CreditCardTypeEffects } from "./store/effects/credit-card-type.effect";
     HttpModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    StoreModule.forRoot({ cardTypes: cardTypeReducer }),
+    StoreModule.forRoot({
+      cardTypes: cardTypeReducer,
+      creditCards: creditCardReducer
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 25 // Retains last 25 states
     }),
     ServiceWorkerModule.register("/ngsw-worker.js", {
       enabled: environment.production
     }),
-    EffectsModule.forRoot([CreditCardTypeEffects])
+    EffectsModule.forRoot([
+      EffectsBarrel.CreditCardTypeEffects,
+      EffectsBarrel.CreditCardEffects
+    ])
   ],
   providers: [CategoriesService, QuestionsService, CreditCardService],
   bootstrap: [AppComponent]

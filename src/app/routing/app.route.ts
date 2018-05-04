@@ -9,7 +9,7 @@ import {
 export const routes: Routes = [
   {
     path: "",
-    redirectTo: "/categories",
+    redirectTo: "/cards",
     pathMatch: "full"
   },
   {

@@ -18,10 +18,10 @@ export class CreditCardService {
     return this.http.get(this._serviceUrlTypes).map(res => res.json());
   }
 
-  saveCreditCards(cards: CreditCard[]): Observable<CreditCard[]> {
-    let url = this._serviceUrlCards;
-    return this.http.post(url, cards).map(res => res.json());
-  }
+  // saveCreditCards(cards: CreditCard[]): Observable<CreditCard[]> {
+  //   let url = this._serviceUrlCards;
+  //   return this.http.post(url, cards).map(res => res.json());
+  // }
 
   createCreditCard(card: CreditCard): Observable<CreditCard> {
     let url = this._serviceUrlCards;
