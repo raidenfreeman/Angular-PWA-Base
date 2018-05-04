@@ -1,0 +1,9 @@
+{
+  "husky": {
+    "hooks": {
+      "scripts": {
+        "pre-commit": "lint-staged"
+      }
+    }
+  }
+}

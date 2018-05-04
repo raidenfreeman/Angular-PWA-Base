@@ -1,12 +1,12 @@
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
+import { BrowserModule } from "@angular/platform-browser";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { AppComponent } from "./app.component";
-
 import { environment } from "../environments/environment";
-
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { StoreModule } from "@ngrx/store";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { Http, HttpModule } from "@angular/http";
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -41,23 +41,26 @@ import {
   MatToolbarModule,
   MatTooltipModule
 } from "@angular/material";
-import { Http, HttpModule } from "@angular/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {
-  NavbarComponent,
-  FooterComponent,
   CategoriesComponent,
-  TagsComponent,
+  CreditCardComponent,
+  FooterComponent,
+  NavbarComponent,
   QuestionsComponent,
-  CreditCardComponent
+  TagsComponent
 } from "./components";
+import { CardFormComponent } from "./components/cards/card-form/card-form.component";
+import { AppRoutingModule } from "./routing/app-routing.module";
 import {
   CategoriesService,
-  QuestionsService,
-  CreditCardService
+  CreditCardService,
+  QuestionsService
 } from "./services";
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-import { AppRoutingModule } from "./routing/app-routing.module";
-import { CardFormComponent } from './components/cards/card-form/card-form.component';
+import { cardTypeReducer } from "./store/reducers/credit-card-type.reducer";
+import { EffectsModule } from "@ngrx/effects";
+import { CreditCardTypeEffects } from "./store/effects/credit-card-type.effect";
+// import
 
 @NgModule({
   declarations: [
@@ -68,7 +71,7 @@ import { CardFormComponent } from './components/cards/card-form/card-form.compon
     TagsComponent,
     QuestionsComponent,
     CreditCardComponent,
-    CardFormComponent,
+    CardFormComponent
   ],
   imports: [
     BrowserModule,
@@ -108,9 +111,14 @@ import { CardFormComponent } from './components/cards/card-form/card-form.compon
     HttpModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    StoreModule.forRoot({ cardTypes: cardTypeReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25 // Retains last 25 states
+    }),
     ServiceWorkerModule.register("/ngsw-worker.js", {
       enabled: environment.production
-    })
+    }),
+    EffectsModule.forRoot([CreditCardTypeEffects])
   ],
   providers: [CategoriesService, QuestionsService, CreditCardService],
   bootstrap: [AppComponent]

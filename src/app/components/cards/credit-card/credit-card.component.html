@@ -1,7 +1,8 @@
-<div class="card-grid">
+<!-- <div class="card-grid">
   <app-card-form [card]="card" [cardTypes]="creditCardTypes" *ngFor="let card of creditCards">
   </app-card-form>
 </div>
 <button class="add-btn" mat-fab color="primary" (click)="addCard()">
   <mat-icon aria-label="Add">add</mat-icon>
-</button>
+</button> -->
+<div>{{types$|async|json}}</div>

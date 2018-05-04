@@ -5,7 +5,6 @@ import {
   ViewChild
 } from "@angular/core";
 import { MediaMatcher } from "@angular/cdk/layout";
-import { MatSidenav } from "@angular/material";
 
 @Component({
   selector: "app-root",
@@ -17,7 +16,10 @@ export class AppComponent implements OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher
+  ) {
     this.mobileQuery = media.matchMedia("(max-width: 55rem)");
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
