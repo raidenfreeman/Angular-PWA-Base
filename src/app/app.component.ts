@@ -28,6 +28,8 @@ export class AppComponent implements OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
+  isSideNavExpanded = true;
+
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }

@@ -66,6 +66,15 @@
       "commissionPercentage": "5",
       "commissionFixed": "0.001",
       "type": "4"
+    },
+    {
+      "id": "UpbeMlU",
+      "name": "GG",
+      "description": "wp",
+      "issuingOrganization": "",
+      "commissionPercentage": 0,
+      "commissionFixed": "1",
+      "type": "3"
     }
   ],
   "categories": [

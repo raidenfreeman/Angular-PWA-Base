@@ -1,5 +1,5 @@
 <app-create-card [cardTypes]="types$ | async"></app-create-card>
 <div class="card-grid">
-  <app-card-form [card]="card" [cardTypes]="types$ | async" *ngFor="let card of creditCards$ | async">
+  <app-card-form [card]="card" [edit]="true" [cardTypes]="types$ | async" *ngFor="let card of creditCards$ | async">
   </app-card-form>
 </div>

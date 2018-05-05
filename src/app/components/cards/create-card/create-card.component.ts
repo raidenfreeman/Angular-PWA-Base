@@ -63,6 +63,12 @@ export class CreateCardComponent implements OnInit {
   addCard() {
     this.buttonState = this.invertState(this.buttonState);
   }
+
+  boom() {
+    this.showButton = true;
+    this.buttonState = buttonStates.initial;
+    console.log("nani");
+  }
   invertState(state: buttonStates) {
     if (state === buttonStates.initial) {
       return buttonStates.activated;

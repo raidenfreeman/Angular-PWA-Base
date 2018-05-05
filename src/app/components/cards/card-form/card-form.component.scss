@@ -10,7 +10,7 @@ mat-card {
   flex-direction: column;
 }
 
-.card-container-form > * {
+.card-container-form>* {
   flex: 1;
 }
 
@@ -20,7 +20,11 @@ mat-card {
   flex-direction: column;
 }
 
-
-.special{
+.create {
   background-color: #3a515d;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-evenly;
 }

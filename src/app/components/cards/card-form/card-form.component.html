@@ -1,5 +1,5 @@
 <form [formGroup]="creditCardForm" class="card-container-form" (ngSubmit)="onSubmit()">
-  <mat-card [class.special]="special">
+  <mat-card [class.create]="!edit">
     <mat-card-header style="align-items: baseline">
       <mat-icon style="order: -1; margin-right: 1em;">credit_card</mat-icon>
       <mat-card-title>
@@ -9,7 +9,7 @@
         </mat-form-field>
       </mat-card-title>
       <span style="flex:1"></span>
-      <mat-icon color="primary">mode_edit</mat-icon>
+      <mat-icon color="primary">{{edit?'mode_edit':'add_circle'}}</mat-icon>
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content class="card-content-column">
@@ -38,11 +38,11 @@
         </mat-select>
       </mat-form-field>
       <mat-card-actions style="overflow: hidden;">
-        <div [@flyInOut]="creditCardForm.dirty?'in':'out'" style="display: flex; justify-content: space-evenly;">
+        <div [@flyInOut]="(!edit || creditCardForm.dirty)?'in':'out'" class="footer-container">
           <button mat-fab color="primary" type="submit">
             <mat-icon aria-label="Save">save</mat-icon>
           </button>
-          <button mat-fab color="warn" type="reset">
+          <button mat-fab color="warn" type="reset" (click)="cancel()">
             <mat-icon aria-label="Cancel">cancel</mat-icon>
           </button>
         </div>

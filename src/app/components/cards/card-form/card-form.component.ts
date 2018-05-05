@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import {
   trigger,
   state,
@@ -11,7 +11,7 @@ import { CreditCard, CardType } from "../../../model";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import "rxjs/add/operator/catch";
 import { Store } from "@ngrx/store";
-import { UpdateCard } from "../../../store/actions";
+import { UpdateCard, CreateCard } from "../../../store/actions";
 
 @Component({
   selector: "app-card-form",
@@ -46,8 +46,9 @@ import { UpdateCard } from "../../../store/actions";
 })
 export class CardFormComponent implements OnInit {
   @Input() card: CreditCard;
-  @Input() special: boolean;
+  @Input() edit: boolean;
   @Input() cardTypes: CardType[];
+  @Output() onCancel= new EventEmitter();
   // @Output() onFormSubmition = new EventEmitter<CreditCard>();
   creditCardForm: FormGroup;
   constructor(private formBuilder: FormBuilder, private store: Store<any>) {}
@@ -60,29 +61,20 @@ export class CardFormComponent implements OnInit {
     if (this.creditCardForm.invalid) {
       return;
     }
-    this.store.dispatch(new UpdateCard(this.creditCardForm.value));
-    // const newCard = this.getCardFromValue(this.creditCardForm.value);
-    // // let serviceObservable: Observable<CreditCard>;
-    // // if (!newCard.id) {
-    // //   serviceObservable = this.cardService.createCreditCard(newCard);
-    // } else {
-    //   serviceObservable = this.cardService.updateCreditCard(newCard);
-    // }
-    // serviceObservable
-    //   .take(1)
-    //   .catch(err => {
-    //     console.error(err);
-    //     return Observable.throw(err);
-    //   })
-    //   .subscribe(_ => {
-    //     this.creditCardForm = this.buildForm(this.formBuilder, newCard);
-    //     return;
-    //   });
+    if (this.edit) {
+      this.store.dispatch(new UpdateCard(this.creditCardForm.value));
+    }
+    else{
+      this.store.dispatch(new CreateCard(this.creditCardForm.value));
+    }
   }
-
-  // getCardFromValue(formValue: any): CreditCard {
-  //   return Object.assign({ id: this.card.id }, formValue);
-  // }
+  cancel() {
+    if (this.edit) {
+      return;
+    }
+    console.log('bye');
+    this.onCancel.emit();
+  }
 
   buildForm(fb: FormBuilder, card: CreditCard) {
     return fb.group({
