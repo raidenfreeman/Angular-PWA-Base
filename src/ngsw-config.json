@@ -6,12 +6,17 @@
     "resources": {
       "files": [
         "/favicon.ico",
-        "/index.html"
+        "/index.html",
+        "/manifest.json"
       ],
       "versionedFiles": [
         "/*.bundle.css",
         "/*.bundle.js",
         "/*.chunk.js"
+      ],
+      "urls": [
+        "https://fonts.googleapis.com/icon?family=Material+Icons",
+        "https://fonts.googleapis.com/css?family=Roboto:300,400,500"
       ]
     }
   }, {
