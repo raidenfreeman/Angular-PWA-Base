@@ -46,6 +46,7 @@ import { UpdateCard } from "../../../store/actions";
 })
 export class CardFormComponent implements OnInit {
   @Input() card: CreditCard;
+  @Input() special: boolean;
   @Input() cardTypes: CardType[];
   // @Output() onFormSubmition = new EventEmitter<CreditCard>();
   creditCardForm: FormGroup;

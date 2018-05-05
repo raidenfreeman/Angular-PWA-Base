@@ -7,6 +7,10 @@ import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Http, HttpModule } from "@angular/http";
+import { AngularFireModule } from "angularfire2";
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -60,6 +64,7 @@ import {
 import { EffectsModule } from "@ngrx/effects";
 import * as EffectsBarrel from "./store/effects";
 import { creditCardReducer, cardTypeReducer } from "./store/reducers";
+import { CreateCardComponent } from "./components/cards/create-card/create-card.component";
 // import
 
 @NgModule({
@@ -71,7 +76,8 @@ import { creditCardReducer, cardTypeReducer } from "./store/reducers";
     TagsComponent,
     QuestionsComponent,
     CreditCardComponent,
-    CardFormComponent
+    CardFormComponent,
+    CreateCardComponent
   ],
   imports: [
     BrowserModule,
@@ -111,6 +117,10 @@ import { creditCardReducer, cardTypeReducer } from "./store/reducers";
     HttpModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase, 'cashier'),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
     StoreModule.forRoot({
       cardTypes: cardTypeReducer,
       creditCards: creditCardReducer

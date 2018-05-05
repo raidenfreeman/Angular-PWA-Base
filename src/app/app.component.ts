@@ -5,6 +5,7 @@ import {
   ViewChild
 } from "@angular/core";
 import { MediaMatcher } from "@angular/cdk/layout";
+import { AngularFirestore } from "angularfire2/firestore";
 
 @Component({
   selector: "app-root",
@@ -15,11 +16,13 @@ export class AppComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
-
+  items;
   constructor(
     changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher
+    media: MediaMatcher,
+    db: AngularFirestore
   ) {
+    this.items = db.collection("items").valueChanges();
     this.mobileQuery = media.matchMedia("(max-width: 55rem)");
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);

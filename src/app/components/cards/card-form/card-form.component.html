@@ -1,5 +1,5 @@
 <form [formGroup]="creditCardForm" class="card-container-form" (ngSubmit)="onSubmit()">
-  <mat-card>
+  <mat-card [class.special]="special">
     <mat-card-header style="align-items: baseline">
       <mat-icon style="order: -1; margin-right: 1em;">credit_card</mat-icon>
       <mat-card-title>

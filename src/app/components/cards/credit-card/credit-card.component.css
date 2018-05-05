@@ -1,22 +1,15 @@
 :host {
-    height: 100%;
-}
-
-.add-btn {
-    position: fixed;
-    bottom: 6em;
-    right: 3em;
+  height: 100%;
 }
 
 .card-grid {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
 }
 
-.card-grid>* {
-    flex: auto;
-    max-width: 30em;
-    min-width: 20em;
+.card-grid > * {
+  flex: 0;
+  width: 27em;
 }

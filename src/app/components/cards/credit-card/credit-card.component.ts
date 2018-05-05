@@ -33,8 +33,4 @@ export class CreditCardComponent implements OnInit {
     this.types$ = this.store.select(x => x.cardTypes);
     this.creditCards$ = this.store.select(x => x.creditCards);
   }
-
-  addCard() {
-    // this.creditCards.push(new CreditCard());
-  }
 }
