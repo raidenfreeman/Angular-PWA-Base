@@ -9,7 +9,7 @@ import * as fromCardTypeReducer from "../../../store/reducers/credit-card-type.r
 import * as fromCreditCardReducer from "../../../store/reducers/credit-card.reducer";
 import { LoadCardTypes, LoadCards } from "../../../store/actions";
 
-interface AppState {
+export interface AppState {
   cardTypes: CardType[];
   creditCards: CreditCard[];
 }

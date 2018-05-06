@@ -12,6 +12,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import "rxjs/add/operator/catch";
 import { Store } from "@ngrx/store";
 import { UpdateCard, CreateCard } from "../../../store/actions";
+import { CreditCardService } from "../../../services";
 
 @Component({
   selector: "app-card-form",
@@ -51,7 +52,7 @@ export class CardFormComponent implements OnInit {
   @Output() onCancel= new EventEmitter();
   // @Output() onFormSubmition = new EventEmitter<CreditCard>();
   creditCardForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private store: Store<any>) {}
+  constructor(private formBuilder: FormBuilder, private service: CreditCardService) {}
 
   ngOnInit() {
     this.creditCardForm = this.buildForm(this.formBuilder, this.card);
@@ -62,10 +63,13 @@ export class CardFormComponent implements OnInit {
       return;
     }
     if (this.edit) {
-      this.store.dispatch(new UpdateCard(this.creditCardForm.value));
+      // this.creditCardForm.valueChanges
+      this.service.updateCreditCard(this.creditCardForm.value);
+      // this.store.dispatch(new UpdateCard(this.creditCardForm.value));
     }
     else{
-      this.store.dispatch(new CreateCard(this.creditCardForm.value));
+      this.service.createCreditCard(this.creditCardForm.value);
+      // this.store.dispatch(new CreateCard(this.creditCardForm.value));
     }
   }
   cancel() {

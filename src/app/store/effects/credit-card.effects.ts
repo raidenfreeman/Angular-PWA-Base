@@ -31,30 +31,30 @@ export class CreditCardEffects {
     )
   );
 
-  @Effect()
-  updateCreditCard$ = this.actions$.pipe(
-    ofType(CreditCardActionTypes.UpdateCard),
-    exhaustMap((action: UpdateCard) =>
-      this.service
-        .updateCreditCard(action.payload)
-        .pipe(
-          map(result => new UpdateCardComplete(result)),
-          catchError(error => of(new UpdateCardError(error)))
-        )
-    )
-  );
+  // @Effect()
+  // updateCreditCard$ = this.actions$.pipe(
+  //   ofType(CreditCardActionTypes.UpdateCard),
+  //   exhaustMap((action: UpdateCard) =>
+  //     this.service
+  //       .updateCreditCard(action.payload)
+  //       .pipe(
+  //         map(result => new UpdateCardComplete(result)),
+  //         catchError(error => of(new UpdateCardError(error)))
+  //       )
+  //   )
+  // );
 
-  @Effect()
-  createCreditCard$ = this.actions$.pipe(
-    ofType(CreditCardActionTypes.CreateCard),
-    exhaustMap((action: CreateCard) =>
-      this.service
-        .createCreditCard(action.payload)
-        .pipe(
-          map(result => new CreateCardComplete(result)),
-          catchError(error => of(new CreateCardError(error)))
-        )
-    )
-  );
+  // @Effect()
+  // createCreditCard$ = this.actions$.pipe(
+  //   ofType(CreditCardActionTypes.CreateCard),
+  //   exhaustMap((action: CreateCard) =>
+  //     this.service
+  //       .createCreditCard(action.payload)
+  //       .pipe(
+  //         map(result => new CreateCardComplete(result)),
+  //         catchError(error => of(new CreateCardError(error)))
+  //       )
+  //   )
+  // );
   constructor(private actions$: Actions, private service: CreditCardService) {}
 }
