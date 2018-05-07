@@ -8,9 +8,9 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Http, HttpModule } from "@angular/http";
 import { AngularFireModule } from "angularfire2";
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireStorageModule } from 'angularfire2/storage';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFirestoreModule } from "angularfire2/firestore";
+import { AngularFireStorageModule } from "angularfire2/storage";
+import { AngularFireAuthModule } from "angularfire2/auth";
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -54,7 +54,9 @@ import {
   QuestionsComponent,
   TagsComponent
 } from "./components";
-import { CardFormComponent } from "./components/cards/card-form/card-form.component";
+import {
+  CardFormComponent
+} from "./components/cards/card-form/card-form.component";
 import { AppRoutingModule } from "./routing/app-routing.module";
 import {
   CategoriesService,
@@ -65,6 +67,7 @@ import { EffectsModule } from "@ngrx/effects";
 import * as EffectsBarrel from "./store/effects";
 import { creditCardReducer, cardTypeReducer } from "./store/reducers";
 import { CreateCardComponent } from "./components/cards/create-card/create-card.component";
+import { DeletionDialog } from "./components/cards/deletion-dialog/deletion-dialog.component";
 // import
 
 @NgModule({
@@ -77,47 +80,48 @@ import { CreateCardComponent } from "./components/cards/create-card/create-card.
     QuestionsComponent,
     CreditCardComponent,
     CardFormComponent,
-    CreateCardComponent
+    CreateCardComponent,
+    DeletionDialog,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatAutocompleteModule,
+    // MatAutocompleteModule,
     MatButtonModule,
-    MatButtonToggleModule,
+    // MatButtonToggleModule,
     MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatDatepickerModule,
+    // MatCheckboxModule,
+    // MatChipsModule,
+    // MatDatepickerModule,
     MatDialogModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatGridListModule,
+    // MatDividerModule,
+    // MatExpansionModule,
+    // MatGridListModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
-    MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
-    MatProgressBarModule,
-    MatProgressSpinnerModule,
-    MatRadioModule,
+    // MatMenuModule,
+    // MatNativeDateModule,
+    // MatPaginatorModule,
+    // MatProgressBarModule,
+    // MatProgressSpinnerModule,
+    // MatRadioModule,
     MatRippleModule,
     MatSelectModule,
     MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatStepperModule,
-    MatTableModule,
-    MatTabsModule,
+    // MatSliderModule,
+    // MatSlideToggleModule,
+    // MatSnackBarModule,
+    // MatSortModule,
+    // MatStepperModule,
+    // MatTableModule,
+    // MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
     HttpModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase, 'cashier'),
+    AngularFireModule.initializeApp(environment.firebase, "cashier"),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
@@ -136,6 +140,7 @@ import { CreateCardComponent } from "./components/cards/create-card/create-card.
       EffectsBarrel.CreditCardEffects
     ])
   ],
+  entryComponents: [DeletionDialog],
   providers: [CategoriesService, QuestionsService, CreditCardService],
   bootstrap: [AppComponent]
 })

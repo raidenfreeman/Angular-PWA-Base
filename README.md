@@ -1,5 +1,14 @@
-# SpaPwa
+# Cashier PWA
 
+Run `npm start` to test locally (service worker won't work).
+
+To build run `npm run build`
+
+To test the service worker, build it, and then run `npx http-server ./dist` (this will download and execute a web server).
+
+TODO: Finalize sidebar design, and fix it!!
+
+---------------------
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Development server

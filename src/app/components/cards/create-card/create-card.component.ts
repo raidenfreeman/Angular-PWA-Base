@@ -58,7 +58,7 @@ export class CreateCardComponent implements OnInit {
     this.buttonState = this.invertState(this.buttonState);
   }
 
-  boom() {
+  handleCancel() {
     this.showButton = true;
     this.buttonState = buttonStates.initial;
   }

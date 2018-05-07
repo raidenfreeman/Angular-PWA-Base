@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  Inject
+} from "@angular/core";
 import {
   trigger,
   state,
@@ -13,6 +20,8 @@ import "rxjs/add/operator/catch";
 import { Store } from "@ngrx/store";
 import { UpdateCard, CreateCard } from "../../../store/actions";
 import { CreditCardService } from "../../../services";
+import { MatDialog } from "@angular/material";
+import { DeletionDialog } from "../deletion-dialog/deletion-dialog.component";
 
 @Component({
   selector: "app-card-form",
@@ -49,10 +58,14 @@ export class CardFormComponent implements OnInit {
   @Input() card: CreditCard;
   @Input() edit: boolean;
   @Input() cardTypes: CardType[];
-  @Output() onCancel= new EventEmitter();
+  @Output() onCancel = new EventEmitter();
   // @Output() onFormSubmition = new EventEmitter<CreditCard>();
   creditCardForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private service: CreditCardService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: CreditCardService,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.creditCardForm = this.buildForm(this.formBuilder, this.card);
@@ -62,13 +75,16 @@ export class CardFormComponent implements OnInit {
     if (this.creditCardForm.invalid) {
       return;
     }
-    if (this.edit) {
+    if (this.edit && this.creditCardForm.value.id) {
       // this.creditCardForm.valueChanges
-      this.service.updateCreditCard(this.creditCardForm.value);
+      this.service.updateCreditCard(this.creditCardForm.value, () =>
+        this.cancel()
+      );
       // this.store.dispatch(new UpdateCard(this.creditCardForm.value));
-    }
-    else{
-      this.service.createCreditCard(this.creditCardForm.value);
+    } else {
+      this.service.createCreditCard(this.creditCardForm.value, () =>
+        this.cancel()
+      );
       // this.store.dispatch(new CreateCard(this.creditCardForm.value));
     }
   }
@@ -77,6 +93,21 @@ export class CardFormComponent implements OnInit {
       return;
     }
     this.onCancel.emit();
+  }
+
+  delete() {
+    if (!this.edit) {
+      // this.cancel();
+      return;
+    }
+    let dialogRef = this.dialog.open(DeletionDialog, {
+      data: { name: this.creditCardForm.value.name }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true && this.card.id) {
+        this.service.deleteCreditCard(this.card.id);
+      }
+    });
   }
 
   buildForm(fb: FormBuilder, card: CreditCard) {

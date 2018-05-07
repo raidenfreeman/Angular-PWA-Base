@@ -9,7 +9,9 @@
         </mat-form-field>
       </mat-card-title>
       <span style="flex:1"></span>
-      <mat-icon color="primary">{{edit?'mode_edit':'add_circle'}}</mat-icon>
+      <button mat-icon-button (click)="delete()" type="button">
+        <mat-icon color="primary">{{edit?'delete_forever':'add_circle'}}</mat-icon>
+      </button>
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content class="card-content-column">

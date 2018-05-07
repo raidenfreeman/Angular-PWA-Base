@@ -46,9 +46,9 @@ export class CreditCardService {
       })
     );
   }
-  createCreditCard(card: CreditCard) {
+  createCreditCard(card: CreditCard, success: () => void) {
     const newCard = this.removeId(card);
-    this.cardsCollection.add(newCard);
+    this.cardsCollection.add(newCard).then(success);
     // .then(res => {
     //   this.store.dispatch(new CreateCardComplete(card));
     // })
@@ -56,8 +56,11 @@ export class CreditCardService {
     // let url = this._serviceUrlCards;
     // return this.http.post(url, card).map(res => res.json());
   }
-  updateCreditCard(card: CreditCard) {
-    this.cardsCollection.doc(card.id).update(card);
+  updateCreditCard(card: CreditCard, success: () => void) {
+    this.cardsCollection
+      .doc(card.id)
+      .update(card)
+      .then(success);
     // .then(res => {
     //   this.store.dispatch(new CreateCardComplete(card));
     // })
@@ -67,6 +70,9 @@ export class CreditCardService {
     // return this.http.put(url, card).map(res => res.json());
   }
 
+  deleteCreditCard(cardId: string) {
+    this.cardsCollection.doc(cardId).delete();
+  }
   private removeId(o: any): any {
     const { id, ...objectWithoutId } = o;
     return objectWithoutId;
