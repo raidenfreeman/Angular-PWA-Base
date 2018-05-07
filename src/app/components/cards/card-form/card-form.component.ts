@@ -76,7 +76,6 @@ export class CardFormComponent implements OnInit {
     if (this.edit) {
       return;
     }
-    console.log('bye');
     this.onCancel.emit();
   }
 

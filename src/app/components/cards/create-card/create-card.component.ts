@@ -22,7 +22,7 @@ const enum buttonStates {
   animations: [
     trigger("btnState", [
       state(
-        buttonStates.initial,
+        "initial",
         style({
           backgroundColor: "#c2185b",
           height: "4em",
@@ -31,7 +31,7 @@ const enum buttonStates {
         })
       ),
       state(
-        buttonStates.activated,
+        "activated",
         style({
           backgroundColor: "#424242",
           height: "30em",
@@ -39,14 +39,8 @@ const enum buttonStates {
           borderRadius: "0 2em 0 2em"
         })
       ),
-      transition(
-        `${buttonStates.initial} => ${buttonStates.activated}`,
-        animate("400ms ease-in")
-      ),
-      transition(
-        `${buttonStates.activated} => ${buttonStates.initial}`,
-        animate("400ms ease-out")
-      )
+      transition("initial => activated", animate("400ms ease-in")),
+      transition("activated => initial", animate("400ms ease-out"))
     ])
   ]
 })
@@ -67,7 +61,6 @@ export class CreateCardComponent implements OnInit {
   boom() {
     this.showButton = true;
     this.buttonState = buttonStates.initial;
-    console.log("nani");
   }
   invertState(state: buttonStates) {
     if (state === buttonStates.initial) {
