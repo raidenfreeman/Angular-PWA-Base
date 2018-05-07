@@ -104,7 +104,7 @@ import { DeletionDialog } from "./components/cards/deletion-dialog/deletion-dial
     // MatNativeDateModule,
     // MatPaginatorModule,
     // MatProgressBarModule,
-    // MatProgressSpinnerModule,
+    MatProgressSpinnerModule,
     // MatRadioModule,
     MatRippleModule,
     MatSelectModule,
