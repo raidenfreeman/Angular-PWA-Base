@@ -6,10 +6,23 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "rewrites": [{
+      "source": "**",
+      "destination": "/index.html"
+    }],
+    "headers": [{
+        "source": "/",
+        "headers": [{
+          "key": "Link",
+          "value": "<main.e37df7e787705a75c05a.bundle.js>;rel=preload;as=script,<inline.318b50c57b4eba3d437b.bundle.js>;rel=preload;as=script,<styles.2d331fd4d9116fdf7161.bundle.css>;rel=preload;as=style;<https://fonts.gstatic.com/s/materialicons/v36/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2>;rel=preload;as=font,<https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fBBc4.woff2>;rel=preload;as=font"
+        }]
+      },
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "**/*.@(jpg|jpeg|gif|png)",
+        "headers": [{
+          "key": "Cache-Control",
+          "value": "max-age=7200"
+        }]
       }
     ]
   }
